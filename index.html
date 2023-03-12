@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacked Hogwarts Student List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="dark_header">
+        <img class="hogwarts_logo" src="images/hogwarts-logo-svg-vector.svg" alt="hogwarts logo" />
+        <div class="search">
+          <input type="text" id="site_search" placeholder="Type student’s name" /><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </div>
+      </div>
+      <div id="filters">
+        <h2>Filters:</h2>
+        <button class="filter" data-action="filter" data-filter="all">All students</button>
+        <button class="filter" data-action="filter" data-filter="expelled">Expelled students</button>
+        <button class="filter" data-action="filter" data-filter="slytherin">Slytherin</button>
+        <button class="filter" data-action="filter" data-filter="hufflepuff">Hufflepuff</button>
+        <button class="filter" data-action="filter" data-filter="gryffindor">Gryffindor</button>
+        <button class="filter" data-action="filter" data-filter="ravenclaw">Ravenclaw</button>
+        <button class="filter" data-action="filter" data-filter="muggles">Muggles</button>
+        <button class="filter" data-action="filter" data-filter="halfblood">Half-Blood</button>
+        <button class="filter" data-action="filter" data-filter="pureblood">Pure Blood</button>
+        <button class="filter" data-action="filter" data-filter="squad">Inquisitorial Squad</button>
+        <button class="filter" data-action="filter" data-filter="prefects">Prefects</button>
+      </div>
+    </header>
+    <main>
+      <h1>Hogwarts Student List</h1>
+      <div id="list_info">
+        <div class="info_flex">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#b48203" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+            />
+          </svg>
+          <p>Number of students in the list: <span id="current_students_nr">30</span></p>
+          <p>Expelled: <span id="expelled_students_nr">30</span></p>
+          <p>Gryffindor: <span id="gryffindor_students_nr">30</span></p>
+          <p>Slytherin: <span id="slytherin_students_nr">30</span></p>
+          <p>Ravenclaw: <span id="ravenclaw_students_nr">30</span></p>
+          <p>Hufflepuff: <span id="hufflepuff_students_nr">30</span></p>
+        </div>
+      </div>
+      <div id="list_sorting">
+        <div class="sorting">
+          <button data-action="sort" data-sort-direction="asc" data-sort="firstName">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+              /></svg
+            >First name
+          </button>
+          <button data-action="sort" data-sort-direction="asc" data-sort="lastName">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+              /></svg
+            >Last name
+          </button>
+          <button data-action="sort" data-sort-direction="asc" data-sort="house">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+              /></svg
+            >House
+          </button>
+        </div>
+      </div>
+      <ul id="list"></ul>
+      <template id="student">
+        <tr class="student_id">
+          <td class="info" data-field="student_info">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+            </svg>
+          </td>
+          <td data-field="firstName">name</td>
+          <td data-field="lastName">name</td>
+          <td data-field="house">house</td>
+          <td class="btn" data-field="prefect">
+            <svg class="prefect_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trophy" viewBox="0 0 16 16">
+              <path
+                d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z"
+              />
+            </svg>
+          </td>
+          <td class="btn" data-field="squad">
+            <svg class="squad_id" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-slash" viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M1.093 3.093c-.465 4.275.885 7.46 2.513 9.589a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.32 11.32 0 0 0 1.733-1.525l-.745-.745a10.27 10.27 0 0 1-1.578 1.392c-.346.244-.652.42-.893.533-.12.057-.218.095-.293.118a.55.55 0 0 1-.101.025.615.615 0 0 1-.1-.025 2.348 2.348 0 0 1-.294-.118 6.141 6.141 0 0 1-.893-.533 10.725 10.725 0 0 1-2.287-2.233C3.053 10.228 1.879 7.594 2.06 4.06l-.967-.967zM3.98 1.98l-.852-.852A58.935 58.935 0 0 1 5.072.559C6.157.266 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.483 3.626-.332 6.491-1.551 8.616l-.77-.77c1.042-1.915 1.72-4.469 1.29-7.702a.48.48 0 0 0-.33-.39c-.65-.213-1.75-.56-2.836-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524a49.7 49.7 0 0 0-1.357.39zm9.666 12.374l-13-13 .708-.708 13 13-.707.707z"
+              />
+            </svg>
+          </td>
+          <td class="expelbtn">Expel</td>
+        </tr>
+      </template>
+      <div id="popup" class="hidden">
+        <div id="popup_section">
+          <div class="left">
+            <img class="student_img" src="/images/abbott_h.png" alt="student profile picture" />
+            <p class="firstName">name</p>
+            <p class="middleName">name</p>
+            <p class="lastName">name</p>
+            <p class="nickName">name</p>
+            <p class="bloodStatus">pure</p>
+            <p class="prefect">yes</p>
+            <p class="squad">no</p>
+          </div>
+          <div class="right">
+            <div class="close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1e1919" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+              </svg>
+            </div>
+            <img class="house_img" src="/images/Ravenclaw.webp" alt="house of crest" />
+            <p class="house">Gryffindor</p>
+            <p class="expelled">no</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <a href="https://www.freepik.com/free-vector/watercolour-background-with-leaves_15206849.htm#query=paper&position=9&from_view=search">Image in the background source</a>
+      <a href="https://pottermore.fandom.com/wiki/Houses"> House images source</a>
+      <a href="https://pottermore.fandom.com/wiki/Houses"> Hogwhart logo source</a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
