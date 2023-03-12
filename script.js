@@ -30,7 +30,7 @@ const myself = {
   nickName: "Lil P",
   house: "Hufflepuff",
   gender: "girl",
-  portrait: "/images/natalia_p.png",
+  portrait: "images/natalia_p.png",
   bloodStatus: "muggle",
   prefect: false,
   expelled: false,
