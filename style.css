@@ -103,7 +103,7 @@ button.filter:hover {
 main {
   padding: 2rem var(--margin-desktop);
   position: relative;
-  background-image: url("/images/10.jpg");
+  background-image: url("images/10.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
